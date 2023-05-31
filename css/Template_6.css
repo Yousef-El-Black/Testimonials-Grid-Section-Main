@@ -1,0 +1,208 @@
+/* Moderate violet: hsl(263, 55%, 52%)
+Very dark grayish blue: hsl(217, 19%, 35%)
+Very dark blackish blue: hsl(219, 29%, 14%)
+White: hsl(0, 0%, 100%)
+
+### Neutral
+
+Light gray: hsl(0, 0%, 81%)
+Light grayish blue: hsl(210, 46%, 95%) */
+
+/* 1. "Verified Graduate" has the same color as the person's name with 50% opacity
+2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity */
+
+/* Start Variables */
+
+:root {
+    --font-family: 'Barlow Semi Condensed', sans-serif;
+    --font-size: 13px;
+    --card-1-color: hsl(263, 48%, 51%);
+    --card-2-color: hsl(217, 19%, 35%);
+    --paragraph-3-5-color: hsl(217, 19%, 35%);
+    --card-4-color: hsl(219, 29%, 14%);
+    --paragraph-1-2-4-color: hsl(0, 0%, 81%);
+    --background-color: hsl(210, 46%, 95%);
+    --margin: 30px;
+}
+
+/* End Variables */
+
+/* Start Global Rules */
+
+*{
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    box-shadow: 0 0 10px 0.5px black;
+    border-radius: 10px;
+    position: relative;
+}
+
+p {
+    font-size: var(--font-size);
+}
+
+.image img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.image {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.text {
+    display: inline-block;
+}
+
+h4 {
+    margin-bottom: 0;
+    z-index: 5;
+}
+
+h4 + p {
+    margin-top: 5px;
+}
+
+/* End Global Rules */
+
+/* Start Components */
+
+
+/* End Components */
+
+/* Start Project */
+
+.page {
+    background-color: var(--background-color);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:767px) {
+    .page {
+        height: auto;
+    }
+}
+
+.page .container {
+    display: grid;
+    grid-template-areas: 
+    "card-1 card-1 card-2 card-5"
+    "card-3 card-4 card-4 card-5";
+    grid-gap: 20px;
+    width: 90%;
+    height: 80%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+@media (max-width:767px) {
+    .page .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.card-1 {
+    grid-area: card-1;
+    background-color: var(--card-1-color);
+    background-image: url(../Images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position-x: 80%;
+    background-position-y: 0%;
+}
+
+.card-2 {
+    grid-area: card-2;
+    background-color: var(--card-2-color);
+}
+
+.card-3 {
+    grid-area: card-3;
+    background-color: white;
+}
+
+.card-4 {
+    grid-area: card-4;
+    background-color: var(--card-4-color);
+}
+
+.card-5 {
+    grid-area: card-5;
+    background-color: white;
+}
+
+.image {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.card > p {
+    margin-top: 10px;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.card-1 > p,
+.card-2 > p,
+.card-4 > p {
+    color: var(--background-color);
+}
+
+.card > p:nth-of-type(1) {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card > p:nth-of-type(2) {
+    opacity: 0.3;
+}
+
+.heading {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.card-1 .text,
+.card-2 .text,
+.card-4 .text {
+    color: var(--paragraph-1-2-4-color)
+}
+
+.card-3 .text,
+.card-5 .text {
+    color: black;
+}
+
+.card-1 .image img,
+.card-4 .image img {
+    border: 2px solid hsl(263, 42%, 59%);
+}
+
+.card-2 .image img,
+.card-3 .image img,
+.card-5 .image img {
+    border: 2px solid white;
+}
+
+.text > p {
+    opacity: 0.5;
+}
+
+
+/* End Project */
